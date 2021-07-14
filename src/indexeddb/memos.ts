@@ -1,9 +1,9 @@
 import Dexie from 'dexie'
 
 export interface MemoRecord {
-  datetime: string
-  title: string
-  text: string
+  datetime: string;
+  title: string;
+  text: string;
 }
 
 const database = new Dexie('markdown-editor')
@@ -14,3 +14,9 @@ export const putMemo = async (title: string, text: string): Promise<void> => {
   const datetime = new Date().toISOString()
   await memos.put({ datetime, title, text })
 }
+
+ export const getMemos = (): Promise<MemoRecord[]> => {
+   return memos.orderBy('datetime')
+               .reverse()
+               .toArray()
+ }

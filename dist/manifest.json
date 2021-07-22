@@ -4,9 +4,6 @@
   "name": "MarkdownEditor",
   "icons": [
     {
-      "src": "./image/icon_256x256.png",
-      "sizes":"256x256",
-      "type": "image/png"
     }
   ],
   "start_url": "./index.html",
